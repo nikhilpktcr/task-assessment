@@ -33,7 +33,7 @@ pnpm prisma generate
 
 ```bash
 # Setup local postgres
-docker run --name recruitment-task -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11.16
+docker run --name recruitment-task -e POSTGRES_PASSWORD=docker -p 5435:5432 -d postgres:11.16
 pnpm install
 
 #create .env file with your local database credentials
@@ -44,5 +44,9 @@ pnpm prisma migrate dev
 ```
 
 # watch mode
+
+```bash
 pnpm start:dev
+
+```
 
