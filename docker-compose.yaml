@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  recruitment-task:
+    container_name: recruitment-task
+    image: postgres:11.16
+    environment:
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: docker 
+      POSTGRES_DB: recruitment 
+      POSTGRES_SCHEMA: task
+    ports:
+      - '5435:5432'

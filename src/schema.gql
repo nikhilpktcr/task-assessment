@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CustomerPayload {
+  id: String!
+  email: String!
+  role: String!
+}
+
+type CustomerOnePayload {
+  id: String!
+  email: String!
+  role: String!
+  user_name: String!
+}
+
+type AuthPayload {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type Query {
+  sayHello: String!
+  getCustomers: [CustomerPayload!]!
+  getCustomer: CustomerPayload!
+  updateCustomer(input: UpdateCustomerInput!): CustomerOnePayload!
+  deleteCustomer(input: DeleteCustomerInput!): Boolean!
+}
+
+input UpdateCustomerInput {
+  user_name: String!
+  role: String
+  customer_id: String
+  customer_email: String
+}
+
+input DeleteCustomerInput {
+  customer_id: String
+  customer_email: String
+}
+
+type Mutation {
+  signup(input: SignUpInput!): AuthPayload!
+  signin(input: SignInInput!): AuthPayload!
+  activate(input: ActivateInput!): String!
+  refreshToken(refreshToken: String!): AuthPayload!
+}
+
+input SignUpInput {
+  """Email address"""
+  user_name: String!
+
+  """Email address"""
+  email: String!
+
+  """Password"""
+  password: String!
+}
+
+input SignInInput {
+  """Email address"""
+  email: String!
+
+  """Password"""
+  password: String!
+}
+
+input ActivateInput {
+  """Email address"""
+  email: String!
+
+  """Activation code"""
+  activation_code: String!
+}
